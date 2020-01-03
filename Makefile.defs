@@ -1,0 +1,11 @@
+.PHONY: docker-build docker-run docker-exec
+
+docker-build:
+	docker build -t $(IMAGE):$(TAG) -f Dockerfile .
+
+docker-run:
+	docker run --name $(NAME) --rm -it -v $(PWD):/src $(IMAGE):$(TAG)
+
+docker-exec:
+	docker exec -it $(NAME) /bin/bash
+
