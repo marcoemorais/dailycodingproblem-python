@@ -13187,7 +13187,7 @@ div#notebook {
 <pre>test_lru_cache (__main__.LRUCacheTest) ... ok
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.005s
+Ran 1 test in 0.006s
 
 OK
 </pre>
@@ -13202,7 +13202,7 @@ OK
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;unittest.main.TestProgram at 0x7fa138bbc2b0&gt;</pre>
+<pre>&lt;unittest.main.TestProgram at 0x7f343c0ac2e8&gt;</pre>
 </div>
 
 </div>
@@ -13260,7 +13260,8 @@ OK
 
 <span class="k">class</span> <span class="nc">FindMinimumCutTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 
-    <span class="c1"># Minimum cut through wall1 is 3 units from left.</span>
+    <span class="c1"># Minimum cut through wall1 is 8 units from left and requires 2 cuts.</span>
+    <span class="n">wall1_expected</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">wall1</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
         <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
@@ -13273,7 +13274,7 @@ OK
     <span class="k">def</span> <span class="nf">test_solution</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">case</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;case&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">,</span><span class="s1">&#39;expected&#39;</span><span class="p">])</span>
         <span class="n">cases</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">case</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wall1</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span>
+            <span class="n">case</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wall1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wall1_expected</span><span class="p">),</span>
         <span class="p">]</span>
         <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
             <span class="n">rcv</span> <span class="o">=</span> <span class="n">find_mininum_cut</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
@@ -13300,7 +13301,7 @@ OK
 <pre>test_solution (__main__.FindMinimumCutTest) ... ok
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.016s
+Ran 1 test in 0.009s
 
 OK
 </pre>
@@ -13315,7 +13316,7 @@ OK
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;unittest.main.TestProgram at 0x7fa138b39390&gt;</pre>
+<pre>&lt;unittest.main.TestProgram at 0x7f343c02b470&gt;</pre>
 </div>
 
 </div>
