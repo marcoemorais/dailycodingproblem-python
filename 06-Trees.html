@@ -13131,13 +13131,13 @@ div#notebook {
     <span class="k">return</span> <span class="n">root</span>
 
 
-<span class="k">def</span> <span class="nf">make_list</span><span class="p">(</span><span class="n">head</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">make_list</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return a python list initialized from binary tree.&quot;&quot;&quot;</span>
     
     <span class="c1"># Since this is a binary tree, there is no ordering wrt value.</span>
     <span class="c1"># Values are inserted into python list in the order they appear</span>
     <span class="c1"># during a level order traversal of the binary tree.</span>
-    <span class="n">elems</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">([</span><span class="n">head</span><span class="p">])</span>
+    <span class="n">elems</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">([</span><span class="n">root</span><span class="p">])</span>
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">node</span><span class="p">:</span>
@@ -13224,14 +13224,14 @@ div#notebook {
         <span class="n">univals</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">count_unival_nodes</span><span class="p">(</span><span class="n">head</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">count_unival_nodes</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Count the number of universal nodes in a binary tree.&quot;&quot;&quot;</span>
     
     <span class="c1"># Accumulate unival nodes during post-order traversal.</span>
     <span class="n">univals</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="n">visitor_func</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">count_unival_nodes_visitor</span><span class="p">,</span> 
                                      <span class="n">univals</span><span class="p">)</span>
-    <span class="n">visitor_func</span><span class="p">(</span><span class="n">head</span><span class="p">)</span>
+    <span class="n">visitor_func</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
         
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">univals</span><span class="p">)</span>
 
@@ -13295,7 +13295,7 @@ div#notebook {
 <pre>test_count_unival_nodes (__main__.CountUnivalNodesTest) ... ok
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.003s
+Ran 1 test in 0.002s
 
 OK
 </pre>
@@ -13310,7 +13310,7 @@ OK
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;unittest.main.TestProgram at 0x7f8ba852a9b0&gt;</pre>
+<pre>&lt;unittest.main.TestProgram at 0x7fa6401209b0&gt;</pre>
 </div>
 
 </div>
@@ -13432,7 +13432,7 @@ OK
 <pre>test_make_tree_from_traversals (__main__.MakeTreeFromTraversalsTest) ... ok
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.012s
+Ran 1 test in 0.006s
 
 OK
 </pre>
@@ -13447,7 +13447,7 @@ OK
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;unittest.main.TestProgram at 0x7f8ba84b42e8&gt;</pre>
+<pre>&lt;unittest.main.TestProgram at 0x7fa6400b52e8&gt;</pre>
 </div>
 
 </div>
@@ -13556,7 +13556,7 @@ OK
 <pre>test_evaluate_expression_tree (__main__.EvaluateExpressionTreeTest) ... ok
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.006s
+Ran 1 test in 0.016s
 
 OK
 </pre>
@@ -13571,7 +13571,7 @@ OK
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;unittest.main.TestProgram at 0x7f8ba850eef0&gt;</pre>
+<pre>&lt;unittest.main.TestProgram at 0x7fa64010c780&gt;</pre>
 </div>
 
 </div>
@@ -13609,15 +13609,15 @@ OK
 <span class="kn">import</span> <span class="nn">unittest</span>
 
 
-<span class="k">def</span> <span class="nf">level_with_minimum_sum</span><span class="p">(</span><span class="n">head</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">level_with_minimum_sum</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return the level in the tree having the minimum sum.&quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="ow">not</span><span class="p">(</span><span class="n">head</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">),</span> <span class="s1">&#39;invalid: head is None&#39;</span>
+    <span class="k">assert</span> <span class="ow">not</span><span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">),</span> <span class="s1">&#39;invalid: root is None&#39;</span>
     
     <span class="c1"># Perform a level order traversal accumulating the sum of</span>
     <span class="c1"># values at each level.  Recognize transitions between levels</span>
     <span class="c1"># by recording the level at the time a node inserted into queue.</span>
     <span class="n">best</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">minsum</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-    <span class="n">queue</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">([(</span><span class="n">head</span><span class="p">,</span> <span class="n">level</span><span class="p">)])</span>
+    <span class="n">queue</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">([(</span><span class="n">root</span><span class="p">,</span> <span class="n">level</span><span class="p">)])</span>
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">nodelevel</span><span class="p">)</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">nodelevel</span> <span class="o">!=</span> <span class="n">level</span><span class="p">:</span>  <span class="c1"># Level transition.</span>
@@ -13680,7 +13680,7 @@ OK
 <pre>test_solution (__main__.LevelWithMinimumSumTest) ... ok
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.005s
+Ran 1 test in 0.011s
 
 OK
 </pre>
@@ -13695,7 +13695,7 @@ OK
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;unittest.main.TestProgram at 0x7f8ba84932b0&gt;</pre>
+<pre>&lt;unittest.main.TestProgram at 0x7fa640234da0&gt;</pre>
 </div>
 
 </div>
