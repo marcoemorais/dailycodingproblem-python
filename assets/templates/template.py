@@ -1,4 +1,4 @@
-import collections
+from collections import namedtuple
 import unittest
 
 
@@ -10,7 +10,7 @@ def solution():
 class SolutionTest(unittest.TestCase):
 
     def test_solution(self):
-        case = collections.namedtuple('case', ['input','expected'])
+        case = namedtuple('case', ['input','expected'])
         cases = [
             # Insert test cases.
         ]
