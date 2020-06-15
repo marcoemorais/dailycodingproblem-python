@@ -10,4 +10,7 @@ JUPYTER_PORT=8877
 start-notebook:
 	docker run --name $(NAME) --rm -it -v $(PWD):/src -p $(JUPYTER_PORT):$(JUPYTER_PORT) $(IMAGE):$(TAG) jupyter notebook --ip $(JUPYTER_IP) --port $(JUPYTER_PORT) --allow-root
 
+toc:
+	docker run --name $(NAME) --rm -it -v $(PWD):/src $(IMAGE):$(TAG) python3 -m markdown toc.md > toc.html
+
 include Makefile.defs
